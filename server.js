@@ -20,14 +20,11 @@ app.use(
 
 const server = require("http").createServer(app);
 const WebSocket = require("ws");
+const { connectionInit } = require("./apps/sockethandler/sockethandler");
 const wss = new WebSocket.Server({ server });
 
 wss.on("connection", (ws) => {
-  ws.on("message", (message) => {
-    console.log("Received:", Buffer.from(message).toString());
-  });
-
-  ws.send("Hello client!");
+  connectionInit(ws);
 });
 
 require("./apps/routes/user.route")(app);

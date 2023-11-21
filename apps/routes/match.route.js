@@ -6,5 +6,7 @@ module.exports = (app) => {
   router.post("/findmatch", authJWT, match_controller.findMatch);
   router.get("/history", authJWT, match_controller.getHistory);
   router.post("/playwithai", authJWT, match_controller.playWithAi);
+  router.get("/info/:id", authJWT, match_controller.getMatchInfo);
+  router.post("/setwinner", authJWT, match_controller.setWinner);
   app.use("/match", router);
 };

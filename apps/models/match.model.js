@@ -93,4 +93,15 @@ Match.getHistory = (info, result) => {
   );
 };
 
+Match.getMatchInfo = (info, result) => {
+  sql.query(`SELECT * FROM matches WHERE id = ${info.id}`, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+      return;
+    }
+    result(null, res[0]);
+  });
+};
+
 module.exports = Match;

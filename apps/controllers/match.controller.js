@@ -59,6 +59,24 @@ const findMatch = (req, res) => {
   );
 };
 
+const getMatchInfo = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Body can not be empty.",
+    });
+  }
+  const data = {
+    id: req.params.id,
+  };
+  Match.getMatchInfo(data, (err, result) => {
+    if (err) {
+      res.status(500).send({ fucking: "err" });
+      return;
+    }
+    res.send(result);
+  });
+};
+
 const playWithAi = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -78,8 +96,29 @@ const playWithAi = (req, res) => {
   });
 };
 
+const setWinner = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Body can not be empty.",
+    });
+  }
+  const data = {
+    match_id: req.body.match_id,
+    user_id: req.body.user_id,
+  };
+  Match.setWinner(data, (err, result) => {
+    if (err) {
+      res.status(500).send({ fucking: "err" });
+      return;
+    }
+    res.send({ status: "success" });
+  });
+};
+
 module.exports = {
   findMatch,
   getHistory,
   playWithAi,
+  getMatchInfo,
+  setWinner,
 };
