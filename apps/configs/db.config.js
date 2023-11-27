@@ -1,14 +1,7 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "",
+  HOST: "bnizqoitmqz897dbc8jm-mysql.services.clever-cloud.com",
+  USER: "uwwoutzknakszlap",
+  PASSWORD: "48uqlEIhTExOLQHLqRZL",
   PORT: 3306,
-  DB: "tictactoe",
+  DB: "bnizqoitmqz897dbc8jm",
 };
-// module.exports = {
-//   HOST: "localhost",
-//   USER: "root",
-//   PASSWORD: "",
-//   PORT: 3306,
-//   DB: "passwordmanager",
-// };
